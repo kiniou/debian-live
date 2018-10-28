@@ -1,5 +1,5 @@
 task-lxde-desktop
-task-print-server
+# task-print-server
 
 plymouth
 plymouth-x11
