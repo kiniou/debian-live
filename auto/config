@@ -7,7 +7,7 @@ _MIRROR="http://ftp.fr.debian.org/debian/"
 lb config noauto \
 	 --clean \
    --ignore-system-defaults \
-   --distribution buster \
+   --distribution sid \
    --ignore-system-defaults \
    --mode debian \
    --debian-installer live \
