@@ -2,7 +2,7 @@
 
 set -e
 
-_MIRROR="http://debian.proxad.net/debian/"
+_MIRROR="http://ftp.fr.debian.org/debian/"
 
 lb config noauto \
 	 --clean \
