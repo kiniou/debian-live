@@ -19,6 +19,7 @@ config/bootstrap
 config/chroot
 config/common
 config/source
+config/build
 
 config/control
 
