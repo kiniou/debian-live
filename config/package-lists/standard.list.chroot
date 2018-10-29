@@ -1,4 +1,30 @@
 ! Packages Priority standard
-
+task-xfce-desktop
 task-laptop
 task-ssh-server
+live-tools user-setup sudo eject
+
+lshw
+firmware-linux
+firmware-linux-nonfree
+firmware-misc-nonfree
+firmware-amd-graphics
+firmware-atheros
+firmware-iwlwifi
+firmware-realtek
+firmware-brcm80211
+bluez-firmware
+wpasupplicant
+rfkill
+acpidump
+usbutils
+xxd
+
+gparted
+ntfs-3g
+dosfstools
+mtools
+e2fsprogs
+kpartx
+
+aptitude

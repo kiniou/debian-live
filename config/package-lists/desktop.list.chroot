@@ -1,8 +1,0 @@
-lxde-core
-task-laptop
-
-plymouth
-plymouth-x11
-
-gstreamer1.0-vaapi
-i965-va-driver
