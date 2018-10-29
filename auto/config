@@ -8,7 +8,6 @@ lb config noauto \
 	 --clean \
    --ignore-system-defaults \
    --distribution sid \
-   --ignore-system-defaults \
    --mode debian \
    --debian-installer live \
    --linux-packages "linux-image linux-headers" \
