@@ -17,7 +17,6 @@ lb config noauto \
    --archive-areas "main contrib non-free" \
    --firmware-binary true \
    --firmware-chroot true \
-   --binary-images hdd \
-   --binary-filesystem ext4 \
+   --binary-images iso-hybrid \
    --bootloaders syslinux \
 "${@}"
