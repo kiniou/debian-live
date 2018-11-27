@@ -20,7 +20,8 @@ config/chroot
 config/common
 config/source
 config/build
-
+config/hooks
+config/includes.installer/firmware
 config/control
 
 source/
