@@ -27,4 +27,7 @@ mtools
 e2fsprogs
 kpartx
 
+grub-pc
+grub-pc-bin
+
 aptitude
