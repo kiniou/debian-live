@@ -10,7 +10,7 @@ lb config noauto \
    --distribution sid \
    --mode debian \
    --debian-installer live \
-   --debian-installer-distribution sid \
+   --debian-installer-distribution daily \
    --linux-packages "linux-image linux-headers" \
    --source false \
    --mirror-bootstrap "${_MIRROR}" \
