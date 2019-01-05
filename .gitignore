@@ -24,6 +24,8 @@ config/hooks
 config/includes.installer/firmware
 config/control
 
+config/includes.installer/firmware
+
 source/
 source*.iso
 source*.img
