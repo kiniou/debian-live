@@ -12,12 +12,13 @@ lb config noauto \
    --debian-installer live \
    --debian-installer-distribution daily \
    --linux-packages "linux-image linux-headers" \
+   --firmware-binary false \
+   --firmware-chroot false \
    --source false \
    --mirror-bootstrap "${_MIRROR}" \
    --archive-areas "main contrib non-free" \
-   --firmware-binary true \
-   --firmware-chroot true \
    --binary-images hdd \
    --binary-filesystem ext4 \
-   --bootloaders grub-efi \
+   --bootloaders syslinux \
 "${@}"
+
