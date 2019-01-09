@@ -21,8 +21,8 @@ lb config noauto \
    --parent-mirror-chroot "http://httpredir.debian.org/debian" \
    --parent-mirror-binary "http://httpredir.debian.org/debian" \
    --archive-areas "main contrib non-free" \
-   --binary-images hdd \
-   --binary-filesystem ext4 \
-   --bootloaders syslinux \
+   --binary-images iso \
+   --bootloaders grub-efi \
+   --uefi-secure-boot disable \
 "${@}"
 
