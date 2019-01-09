@@ -1,0 +1,15 @@
+Package: gnome-keyring
+Pin: version *
+Pin-Priority: -1
+
+Package: man-db
+Pin: version *
+Pin-Priority: -1
+
+Package: manpages
+Pin: version *
+Pin-Priority: -1
+
+Package: manpages-dev
+Pin: version *
+Pin-Priority: -1

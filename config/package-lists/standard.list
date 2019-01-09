@@ -1,8 +1,15 @@
 ! Packages Priority standard
-task-xfce-desktop
+live-task-recommended
+live-task-base
 task-laptop
 task-ssh-server
-live-tools user-setup sudo eject
+live-tools
+user-setup
+sudo
+bash-completion
+aptitude
+console-common
+console-data
 
 lshw
 firmware-linux
@@ -13,20 +20,39 @@ firmware-atheros
 firmware-iwlwifi
 firmware-realtek
 firmware-brcm80211
+bumblebee
+bumblebee-nvidia
+primus
 bluez-firmware
 wpasupplicant
 rfkill
 acpidump
 usbutils
 xxd
-
-gparted
+parted
 ntfs-3g
 dosfstools
 mtools
-e2fsprogs
 kpartx
+eject
+pciutils
+usbutils
+keyutils
+keyboard-configuration
+console-setup
+lvm2
+mdadm
+dmsetup
+cryptsetup
+dmraid
+e2fsprogs
+btrfs-progs
+xfsprogs
+jfsutils
 
-grub-pc
+# gparted
 
-aptitude
+# grub-efi-amd64-bin
+# grub-pc
+
+
