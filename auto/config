@@ -23,6 +23,8 @@ lb config noauto \
    --archive-areas "main contrib non-free" \
    --binary-images iso \
    --bootloaders grub-efi \
+   --loadlin false \
+   --win32-loader false \
    --uefi-secure-boot disable \
 "${@}"
 
