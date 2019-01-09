@@ -2,7 +2,8 @@
 
 set -e
 
-_MIRROR="http://ftp.fr.debian.org/debian/"
+#_MIRROR="http://ftp.fr.debian.org/debian/"
+_MIRROR="http://localhost:3142/debian/"
 
 lb config noauto \
 	 --clean \
@@ -16,6 +17,9 @@ lb config noauto \
    --firmware-chroot false \
    --source false \
    --mirror-bootstrap "${_MIRROR}" \
+   --parent-mirror-bootstrap "${_MIRROR}" \
+   --parent-mirror-chroot "http://httpredir.debian.org/debian" \
+   --parent-mirror-binary "http://httpredir.debian.org/debian" \
    --archive-areas "main contrib non-free" \
    --binary-images hdd \
    --binary-filesystem ext4 \
