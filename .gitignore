@@ -6,6 +6,12 @@ binary*.contents
 binary*.packages
 binary*.zsync
 
+live-image-*.contents
+live-image-*.files
+live-image-*.iso
+live-image-*.iso.zsync
+live-image-*.packages
+
 .build/
 build.log
 
@@ -13,6 +19,7 @@ cache/
 
 chroot/
 chroot.packages.*
+chroot.files
 
 config/binary
 config/bootstrap
@@ -21,7 +28,6 @@ config/common
 config/source
 config/build
 config/hooks
-config/includes.installer/firmware
 config/control
 
 config/includes.installer/firmware
