@@ -2,14 +2,34 @@ Package: gnome-keyring
 Pin: version *
 Pin-Priority: -1
 
-Package: man-db
+# Package: man-db
+# Pin: version *
+# Pin-Priority: -1
+
+# Package: manpages
+# Pin: version *
+# Pin-Priority: -1
+
+# Package: manpages-dev
+# Pin: version *
+# Pin-Priority: -1
+
+Package: libreoffice*
 Pin: version *
 Pin-Priority: -1
 
-Package: manpages
+Package: orca
 Pin: version *
 Pin-Priority: -1
 
-Package: manpages-dev
+Package: synaptic
+Pin: version *
+Pin-Priority: -1
+
+Package: connman
+Pin: version *
+Pin-Priority: -1
+
+Package: cmst
 Pin: version *
 Pin-Priority: -1
