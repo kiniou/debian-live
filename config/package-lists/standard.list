@@ -23,9 +23,13 @@ firmware-atheros
 firmware-iwlwifi
 firmware-realtek
 firmware-brcm80211
+
 bumblebee
 bumblebee-nvidia
 primus
+xserver-xorg-video-nvidia
+nvidia-kernel-dkms
+
 bluez-firmware
 wpasupplicant
 rfkill
