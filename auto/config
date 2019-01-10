@@ -17,9 +17,7 @@ lb config noauto \
    --firmware-chroot false \
    --source false \
    --mirror-bootstrap "${_MIRROR}" \
-   --parent-mirror-bootstrap "${_MIRROR}" \
-   --parent-mirror-chroot "http://httpredir.debian.org/debian" \
-   --parent-mirror-binary "http://httpredir.debian.org/debian" \
+   --mirror-binary "http://httpredir.debian.org/debian" \
    --archive-areas "main contrib non-free" \
    --binary-images iso \
    --bootloaders grub-efi \
