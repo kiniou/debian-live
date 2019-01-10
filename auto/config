@@ -23,7 +23,7 @@ lb config noauto \
    --archive-areas "main contrib non-free" \
    --binary-images iso \
    --bootloaders grub-efi \
-   --bootappend-live "boot=live config persistence keyboard-layouts=fr" \
+   --bootappend-live "boot=live config keyboard-layouts=fr" \
    --bootappend-install "keyboard-layouts=fr" \
    --loadlin false \
    --win32-loader false \
