@@ -4,7 +4,7 @@ set -e
 
 #_MIRROR="http://ftp.fr.debian.org/debian/"
 _MIRROR="http://localhost:3142/debian/"
-
+git clean -fX
 lb config noauto \
 	 --clean \
    --ignore-system-defaults \
