@@ -1,7 +1,4 @@
 ! Packages Priority standard
-live-task-lxqt
-task-lxqt-desktop
-task-desktop
 live-task-recommended
 live-task-base
 task-laptop
@@ -24,11 +21,6 @@ firmware-iwlwifi
 firmware-realtek
 firmware-brcm80211
 
-bumblebee
-bumblebee-nvidia
-primus
-xserver-xorg-video-nvidia
-nvidia-kernel-dkms
 
 bluez-firmware
 wpasupplicant
@@ -56,10 +48,3 @@ e2fsprogs
 btrfs-progs
 xfsprogs
 jfsutils
-
-# gparted
-
-# grub-efi-amd64-bin
-# grub-pc
-
-

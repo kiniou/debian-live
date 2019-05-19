@@ -1,5 +1,9 @@
-#task-desktop
-#task-lxqt-desktop
-#salt-minion
+salt-minion
 #salt-ssh
 #google-chrome
+
+#bumblebee
+#bumblebee-nvidia
+#primus
+#xserver-xorg-video-nvidia
+#nvidia-kernel-dkms
