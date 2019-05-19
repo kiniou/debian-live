@@ -7,6 +7,6 @@ fi
 
 kvm -serial stdio \
   -drive if=pflash,format=raw,readonly=on,file=/usr/share/OVMF/OVMF_CODE.fd \
-  -drive if=pflash,format=raw,readonly=on,file=/tmp/vars.fd \
+  -drive if=pflash,format=raw,readonly=on,file=/tmp/kvm.vars.fd \
   -drive if=ide,file="${1}" \
-  -m 4096 -display gtk -enable-kvm -smp cpus=3 \
+  -m 4096 -display gtk -enable-kvm -smp cpus=6 \
