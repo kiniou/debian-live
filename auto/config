@@ -2,8 +2,8 @@
 
 set -e
 
-#_MIRROR="http://ftp.fr.debian.org/debian/"
-_MIRROR="http://localhost:3142/debian/"
+_MIRROR="http://httpredir.debian.org/debian"
+# _MIRROR="http://gateway:3142/debian/"
 git clean -fX
 lb config noauto \
 	 --clean \
@@ -17,7 +17,7 @@ lb config noauto \
    --firmware-chroot false \
    --source false \
    --mirror-bootstrap "${_MIRROR}" \
-   --mirror-binary "http://httpredir.debian.org/debian" \
+   --mirror-binary "${_MIRROR}" \
    --archive-areas "main contrib non-free" \
    --binary-images iso \
    --bootloaders grub-efi \
