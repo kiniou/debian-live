@@ -11,13 +11,14 @@ lb config noauto \
    --distribution sid \
    --mode debian \
    --debian-installer live \
-   --debian-installer-distribution daily \
+   --debian-installer-distribution unstable \
    --linux-packages "linux-image linux-headers" \
    --firmware-binary false \
    --firmware-chroot false \
    --source false \
    --mirror-bootstrap "${_MIRROR}" \
    --mirror-binary "${_MIRROR}" \
+   --mirror-debian-installer "${_MIRROR}/debian"
    --apt-http-proxy http://gateway:3142/ \
    --archive-areas "main contrib non-free" \
    --binary-images iso \
