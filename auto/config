@@ -3,7 +3,7 @@
 set -e
 
 _MIRROR="http://httpredir.debian.org/debian"
-# _MIRROR="http://gateway:3142/debian/"
+_PROXY="http://localhost:3142/"
 git clean -fX
 lb config noauto \
 	 --clean \
@@ -19,7 +19,7 @@ lb config noauto \
    --mirror-bootstrap "${_MIRROR}" \
    --mirror-binary "${_MIRROR}" \
    --mirror-debian-installer "${_MIRROR}" \
-   --apt-http-proxy http://gateway:3142/ \
+   --apt-http-proxy "${_PROXY}" \
    --archive-areas "main contrib non-free" \
    --binary-images iso \
    --bootloaders grub-efi \
