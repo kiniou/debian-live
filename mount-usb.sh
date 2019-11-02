@@ -23,35 +23,70 @@ mkdir -vp "${BASE}"
 ISO_MOUNT="${BASE}/iso"
 
 log_info "Looping ${1}."
-ISOLOOP="$(get_loop_device "${1}")"
-if [ -z "${ISOLOOP}" ];then
-    ISOLOOP="$(losetup --show -P -f "${1}")"
+ISO_LOOP="$(get_loop_device "${1}")"
+if [ -z "${ISO_LOOP}" ];then
+    ISO_LOOP="$(losetup --show -P -f "${1}")"
+    log_info "${1} looped on ${ISO_LOOP} 🙌"
+else
+    log_warn "${1} already looped on ${ISO_LOOP} 🤷"
 fi
-log_info "${1} looped on ${ISOLOOP} 🙌"
 
-log_info "Mounting ${ISOLOOP} on ${ISO_MOUNT}"
-mkdir -vp "${ISO_MOUNT}"
-mount -o loop "${ISOLOOP}" "${ISO_MOUNT}"
-log_info "${ISOLOOP} mounted on ${ISO_MOUNT} 🙌"
+mount_or_remount "${ISO_LOOP}" "${ISO_MOUNT}"
 
 USB_FILE="$(realpath ./usb.img)"
 log_info "Looping ${USB_FILE}"
-USBLOOP="$(get_loop_device "${USB_FILE}")"
-if [ -z "${USBLOOP}" ]; then
-    USBLOOP="$(losetup --show -P -f "${USB_FILE}")"
+USB_LOOP="$(get_loop_device "${USB_FILE}")"
+if [ -z "${USB_LOOP}" ]; then
+    USB_LOOP="$(losetup --show -P -f "${USB_FILE}")"
 fi
-log_info "${USB_FILE} looped on ${USBLOOP} 🙌"
+log_info "${USB_FILE} looped on ${USB_LOOP} 🙌"
 
-parts=$(ls -1 "${USBLOOP}"p*)
+persistence_configuration () {
+    cat <<EOF
+/ union
+EOF
+}
+
+copy_files () {
+    case $1 in
+        *lbu-efi)
+            USB_EFI="${1}"
+            log_info "copying EFI files..."
+            rsync --info=progress2 -a "${ISO_MOUNT}/EFI" "${USB_EFI}/"
+            ;;
+        *lbu-root)
+            USB_ROOT="${1}"
+            log_info "copying Live USB files..."
+            rsync --info=progress2 -a -f "- EFI" "${ISO_MOUNT}/" "${USB_ROOT}/"
+            ;;
+        *lbu-persistence)
+            log_info "prepare persistence files ..."
+            persistence_configuration > "${1}/persistence.conf"
+            log_info "persistence configuration:"
+            cat "${1}/persistence.conf"
+            ;;
+        *)
+            echo "${1}"
+            ;;
+    esac
+}
+
+parts=$(ls -1 "${USB_LOOP}"p*)
 for part in $parts; do
     PARTLABEL=$(blkid -o export "${part}" | grep -E "^PARTLABEL" | sed -e "s/^PARTLABEL=//")
     if [ ! -z "${PARTLABEL}" ];then
         dst="${BASE}/${PARTLABEL}"
-        log_info "Mounting ${part} on ${dst}"
-        mkdir -p "${dst}"
-        mount -o loop "${part}" "${dst}"
-        log_info "${part} mounted on ${dst} 🙌"
+        mount_or_remount "${part}" "${dst}"
+        copy_files "${dst}"
     else
         log_error "${part} does not have a PARTLABEL assigned! 😱"
     fi
 done
+
+echo "USB_EFI:  ${USB_EFI}"
+echo "USB_ROOT: ${USB_ROOT}"
+
+grub-install --no-uefi-secure-boot --removable --target=x86_64-efi \
+             --boot-directory="${USB_ROOT}/boot" \
+             --efi-directory="${USB_EFI}" \
+             "${USB_LOOP}"
