@@ -40,3 +40,21 @@ wait_for_part () {
     set -e
     return 1
 }
+
+mount_or_remount () {
+    local source="${1}"; local target="${2}"
+    if [ -z "${source}" ] || [ -z "${target}" ]
+    then
+        log_error "Remount failed missing argument: source='${source}' target='${target}'"
+        return 1
+    fi
+    log_info "Mounting ${source} on ${target}"
+    mkdir -vp "${target}"
+    if findmnt -P "${target}"
+    then
+        umount "${target}"
+    fi
+    mount "${source}" "${target}"
+    log_info "${source} mounted on ${target} 🙌"
+
+}
