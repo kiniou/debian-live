@@ -18,7 +18,7 @@ log_warn () {
 }
 
 get_loop_device () {
-    LOOP_DEVICE=""
+    local LOOP_DEVICE=""
     if [ -f "${1}" ]; then
         LOOP_DEVICE=$(losetup -j "${1}" | awk -F : -- '{ print $1 }')
     fi
@@ -28,7 +28,7 @@ get_loop_device () {
 
 wait_for_part () {
     set +e
-    trial=5
+    local trial=5;
     while test ${trial} -gt 0;do
         if test -e "$1" -a -b "$1";then
             return 0
